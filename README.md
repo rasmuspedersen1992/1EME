@@ -1,11 +1,13 @@
 # 1EME Contribution, Rasmus Kristoffer Pedersen
 
 My contribution to the 1EME project, organised by Hampton Gaddy and Eric Schneider (LSE)
+
 More info on the project, see https://www.lse.ac.uk/economic-history/hed/workshops/one-epidemic-many-estimates-1eme 
 
-Submitted by Rasmus Kristoffer Pedersen
-Affiliation: Institute of Epidemiology and Social Medicine, University of Münster, Germany & IMMIDD, University of Münster, Germany
-- email: rasmus.p@uni-muenster.de
+Analysis by Rasmus Kristoffer Pedersen.
+- Institute of Epidemiology and Social Medicine, University of Münster, Germany
+- IMMIDD, University of Münster, Germany
+
 
 # Overview
 To determine the six quantites of interest, I made use of a method previously developed to identify mortality crises in a similar dataset of all-cause mortality. The methods are published in Pedersen et al, AJE, 2025, in which daily all-cause mortality for Denmark between 1815 and 1915 is analyzed. (See doi.org/10.1093/aje/kwae187 for details)
