@@ -1,9 +1,5 @@
 # 1EME Contribution, Rasmus Kristoffer Pedersen
 
-My contribution to the 1EME project, organised by Hampton Gaddy and Eric Schneider (LSE)
-
-More info on the project, see https://www.lse.ac.uk/economic-history/hed/workshops/one-epidemic-many-estimates-1eme 
-
 Analysis by Rasmus Kristoffer Pedersen.
 - Institute of Epidemiology and Social Medicine, University of Münster, Germany
 - Interdisciplinary Center for Mathematical Modeling of Infectious Disease Dynamics (IMMIDD), University of Münster, Germany
@@ -15,13 +11,15 @@ The methods are published in Pedersen et al, AJE, 2025, in which daily all-cause
 
 A python repository implementing the previously used methods is available on github.com/pandemixcenter/ExcessMortalityFunctions/. 
 
-Only minor modifications of the code (for compability with a newer versions of Python) was necessary to carry out the present analysis. The updated functions are available in this github repository with the present analysis.
+Only minor modifications of the code (for compability with a newer versions of Python) was necessary to carry out the present analysis. The updated functions are available in the github repository with the present analysis, see link below.
 
 For consistency in the results, all analysis (except for quantity 4) was done on a daily time-resolution. For monthly estimates, sums of the results on daily time-resolution were used. Similar analysis could be done using data on weekly, monthly or annual time-resolution with the same code.
 
 I have chosen to keep the methodology used very comparable to the one used in my previous work, rather than analyze the results thoroughly and calibrate the method to the data. This was done in part due to time-constraints, but also in order to keep the method close to that used previously and to test how accurate the methods implemented in the _ExcessMortalityFunctions_ package can produce useful results for a new dataset without modification. 
 
 Note that this analysis is based solely on all-cause mortality counts, and hence did not take the additional information on cause-specific deaths into account. Similarly, population estimates were not included in the estimation of excess mortality counts, but only used to determine the per-capita mortality after the counts were estimated. This is an active choice to allow for comparison with similar analysis where no population- or cause-specific data are available.
+
+Code and figures are available on github.com/rasmuspedersen1992/1EME
 
 Details of the methodology used are given below.
 
@@ -33,12 +31,12 @@ An iterative process is then carried out: Any date where the observed data lies 
 This iterative process ensures that days of high (assumed excess) mortality do not affect the baseline in surrounding years.
 
 # Identifying mortality crises
-From the resulting mortality baseline, I identify mortality crises, that is, continuous periods of excessive mortality. 
-In this analysis, I define a mortality crisis as any period of time when the daily mortality exceeds the baseline with three standard deviations at least once. Periods are connected if the excess mortality does not drop below two standard deviations for more than seven days. 
+From the resulting mortality baseline, I identify mortality crises, that is, continuous periods of excess mortality. 
+In this analysis, I define a mortality crisis as any period of time when the daily mortality exceeds the baseline with _three_ standard deviations at least once. Periods are connected and counted as a single crisis if the excess mortality does not drop below _two_ standard deviations for more than seven days. 
 This allows me to estimate a distinct start- and end-days of any mortality crisis. 
-Excess deaths are determined as the difference between the total mortality observed during this period and the sum of expected mortality (i.e. the baseline) during the same period. Uncertainty intervals are calculated similarly as the difference between the observed mortality and the baseline plus/minus two standard deviations.
-The primary pandemic period was identified from state-level daily data. The identified period was used in the analysis for quantities 3, 5, and 6. 
-
+Excess deaths are determined as the difference between the total mortality observed during this period and the sum of expected mortality (i.e. the baseline) during the same period. 
+Uncertainty intervals are calculated similarly as the difference between the observed mortality and the baseline plus/minus two standard deviations.
+The primary pandemic period was identified from state-level daily data. The identified periods were subsequently used in the analysis for quantities 3, 5, and 6. 
 
 # Additional details related to specific quantities of interest
 ## Quantity 1
@@ -58,38 +56,3 @@ Rather than only report deaths during the deadliest mortality crisis in the coun
 
 ## Quantity 5 and 6:
 Excess mortality was determined for each of the subgroups, and the sum of the excess in the primary pandemic period (as identified for quantity 1) was reported.
-
-# Figures
-To verify if my results seems reasonable, I made a couple of figures. 
-They are shown here below:
-
-#### Daily mortality on state-level with the identificed mortality crises highlighted (Quantity 1)
-
-![DailyMortality_Statelevel](figures/DailyMortality_Statelevel.png)
-
-#### Excess mortality on state-level, summed by month(Quantity 2)
-
-![MonthlyExcess_Statelevel](figures/MonthlyExcess_Statelevel.png)
-
-
-#### Excess mortality by age-group (Quantity 3)
-
-Kentucky:
-![DailyExcess_Agegroups_KY](figures/DailyExcess_Agegroups_KY.png)
-
-Rural Maryland:
-![DailyExcess_Agegroups_MD](figures/DailyExcess_Agegroups_MD.png)
-
-
-Total deaths by age:
-![TotalAgeGroupMortality](figures/TotalAgeGroupMortality.png)
-
-
-#### Excess mortality by subgroups (Quantity 5 and 6)
-![SplitBySubgroup_KY](figures/SplitBySubgroup_KY.png)
-
-![SplitBySubgroup_MD](figures/SplitBySubgroup_MD.png)
-
-Because the difference in deaths per capita were rather noticeable in rural Maryland, I also made a figure with deaths per 1,000 capita highlighting the difference:
-
-![SplitBySubgroup_MD_rate](figures/SplitBySubgroup_MD_rate.png)
