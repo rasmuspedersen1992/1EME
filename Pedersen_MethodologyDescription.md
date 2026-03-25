@@ -19,7 +19,7 @@ I have chosen to keep the methodology used very comparable to the one used in my
 
 Note that this analysis is based solely on all-cause mortality counts, and hence did not take the additional information on cause-specific deaths into account. Similarly, population estimates were not included in the estimation of excess mortality counts, but only used to determine the per-capita mortality after the counts were estimated. This is an active choice to allow for comparison with similar analysis where no population- or cause-specific data are available.
 
-Code and figures are available on github.com/rasmuspedersen1992/1EME
+Code and figures are available on github.com/RKPedersen/1EME
 
 Details of the methodology used are given below.
 
